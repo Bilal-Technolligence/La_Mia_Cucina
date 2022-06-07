@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id='@+id/nav_home'
+        android:icon="@drawable/home"
+        android:title="Home"
+        tools:ignore="MenuTitle"/>
+    <item
+        android:id="@+id/nav_pasta"
+        android:title="Friends list"
+        android:icon="@drawable/pasta"
+        tools:ignore="MenuTitle"/>
+    <!--<item-->
+        <!--android:id="@+id/nav_report"-->
+        <!--android:title="View report"-->
+        <!--android:icon="@drawable/ic_filter_none_black_24dp" />-->
+    <item
+        android:id="@+id/nav_bookmark"
+        android:icon="@drawable/bookmark"
+        android:title="Family list"
+        tools:ignore="MenuTitle"/>
+    <item
+        android:id="@+id/nav_salt"
+        android:icon="@drawable/salt"
+        android:title="Family list"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/nav_pepper"
+        android:icon="@drawable/pepper"
+        android:title="Family list"
+        tools:ignore="MenuTitle"/>
+
+</menu>

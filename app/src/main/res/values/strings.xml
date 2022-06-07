@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">La Mia Cucina</string>
+    <string name="txtRegistration">Create New Account</string>
+    <string name="txtLogin">Login Form</string>
+</resources>
