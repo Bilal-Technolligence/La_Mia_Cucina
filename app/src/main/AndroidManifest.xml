@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lamiacucina">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,19 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaMiaCucina"
-        tools:targetApi="31">
+        tools:targetApi="s">
         <activity
-            android:name=".Login"
-            android:exported="true"
-            android:theme="@style/AppTheme"/>
+            android:name=".ViewIngredientKitchenLogActivity"
+            android:exported="false" />
         <activity
-            android:name=".Signup"
-            android:exported="true"
-            android:theme="@style/AppTheme"/>
+            android:name=".AddIngredientKitchenLogActivity"
+            android:exported="false" />
         <activity
-            android:name=".StartActivity"
-            android:exported="true"
-            android:theme="@style/AppTheme">
+            android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,11 +32,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MealPlanner"
-            android:exported="false" />
+            android:name=".Login"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Signup"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".StartActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>

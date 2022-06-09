@@ -8,8 +8,8 @@
         android:title="Home"
         tools:ignore="MenuTitle"/>
     <item
-        android:id="@+id/nav_pasta"
-        android:title="Friends list"
+        android:id="@+id/nav_meal_planner"
+        android:title="Meal Planner"
         android:icon="@drawable/pasta"
         tools:ignore="MenuTitle"/>
     <!--<item-->
@@ -17,19 +17,19 @@
         <!--android:title="View report"-->
         <!--android:icon="@drawable/ic_filter_none_black_24dp" />-->
     <item
-        android:id="@+id/nav_bookmark"
+        android:id="@+id/nav_demand_list"
         android:icon="@drawable/bookmark"
-        android:title="Family list"
+        android:title="Demand list"
         tools:ignore="MenuTitle"/>
     <item
-        android:id="@+id/nav_salt"
+        android:id="@+id/nav_kitchen_log"
         android:icon="@drawable/salt"
-        android:title="Family list"
+        android:title="Kitchen Log"
         tools:ignore="MenuTitle" />
     <item
-        android:id="@+id/nav_pepper"
+        android:id="@+id/nav_family"
         android:icon="@drawable/pepper"
-        android:title="Family list"
+        android:title="Family"
         tools:ignore="MenuTitle"/>
 
 </menu>

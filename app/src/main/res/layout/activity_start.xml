@@ -61,5 +61,4 @@
             android:text="Sign up" />
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
