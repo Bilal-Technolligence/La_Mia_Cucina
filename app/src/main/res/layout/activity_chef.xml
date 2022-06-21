@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:orientation="vertical"
     android:theme="@style/AppTheme"
-    tools:context=".MainActivity">
+    tools:context=".ChefActivity">
 
     <FrameLayout
         android:id="@+id/flFragment"
@@ -30,6 +30,8 @@
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/chef_navigation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

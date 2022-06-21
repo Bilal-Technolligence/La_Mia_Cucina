@@ -11,18 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lamiacucina.EditDemandListActivity;
 import com.example.lamiacucina.R;
 import com.example.lamiacucina.model.Ingredient;
-import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class IngredientListAdaptor extends RecyclerView.Adapter<IngredientListAdaptor.MyHolder> {
     Context ct;
     ArrayList<Ingredient> al;
+    Boolean Editable;
 
-    public IngredientListAdaptor(Context cont, ArrayList<Ingredient> al) {
+    public IngredientListAdaptor(Context cont, ArrayList<Ingredient> al, Boolean editable) {
         this.ct = cont;
         this.al = al;
+        Editable = editable;
     }
 
     @NonNull
@@ -35,15 +37,16 @@ public class IngredientListAdaptor extends RecyclerView.Adapter<IngredientListAd
     }
 
     @Override
-    public void onBindViewHolder(IngredientListAdaptor.MyHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull IngredientListAdaptor.MyHolder holder, final int position) {
         final Ingredient p1 = al.get(position);
 
         if (p1.getIngredientName()!=null && !p1.getIngredientName().equals(""))
-            holder.IngredientName.setText("Name : " + p1.getIngredientName() + " | " + p1.getIngredientQuantity() + p1.getIngredientUnit());
+            holder.IngredientName.setText(p1.getIngredientName().trim() + " | " + p1.getIngredientQuantity().trim() + p1.getIngredientUnit().trim());
         else
             holder.IngredientName.setVisibility(View.GONE);
 
-        //holder.cld.setOnClickListener(view -> ct.startActivity(new Intent(ct, DoctorDetail.class).putExtra("doctor", p1)));
+        if (Editable)
+            holder.cld.setOnClickListener(view -> ct.startActivity(new Intent(ct, EditDemandListActivity.class).putExtra("Ingredient", p1)));
     }
 
     @Override

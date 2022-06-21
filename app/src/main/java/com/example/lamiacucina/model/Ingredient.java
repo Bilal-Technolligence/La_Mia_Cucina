@@ -1,6 +1,10 @@
 package com.example.lamiacucina.model;
 
-public class Ingredient {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Ingredient implements Serializable {
     String ID;
     String IngredientName;
     String IngredientQuantity;

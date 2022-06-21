@@ -3,23 +3,41 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/drawable-v24/bg_overlay.xml" value="0.146" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/drawable/gradient.xml" value="0.1505" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_add_ingredient_kitchen_log.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_add_new_family_member.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_chef.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_demand_list.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_edit_demand_list.xml" value="0.1953125" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_family.xml" value="0.1953125" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_main.xml" value="0.20615384615384616" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_meal_planner.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_pantry_manager.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_recipe_detail.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_select_recipes.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_signup.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_splash.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_start.xml" value="0.20615384615384616" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_view_ingredient_kitchen_log.xml" value="0.1953125" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/family_recyclerview_item.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_demand_list.xml" value="0.209375" />
-        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_home.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_edit_demand_list.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_home.xml" value="0.2" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_home_pantry_manager.xml" value="0.2" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_kitchen_log.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_meal_planner.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_my_family.xml" value="0.1953125" />
-        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/ingredient_recyclerview_item.xml" value="0.146875" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_view_schedule_meal_plans.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/ingredient_recyclerview_item.xml" value="0.25" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/no_record_layout.xml" value="0.10260416666666666" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/recipe_slider_rview_item.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/select_recipes_list_layout.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/menu/chef_navigation.xml" value="0.5025" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/menu/navigation.xml" value="0.20615384615384616" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/menu/pantry_manager_navigation.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/menu/pop_up_menu.xml" value="0.209375" />
         <entry key="..\:/Users/Mehar/AndroidStudioProjects/LaMiaCucina/app/src/main/res/drawable-v24/black-button_round.xml" value="0.147" />
         <entry key="..\:/Users/Mehar/AndroidStudioProjects/LaMiaCucina/app/src/main/res/drawable/black-button_round.xml" value="0.147" />
         <entry key="..\:/Users/Mehar/AndroidStudioProjects/LaMiaCucina/app/src/main/res/drawable/button_round.xml" value="0.147" />

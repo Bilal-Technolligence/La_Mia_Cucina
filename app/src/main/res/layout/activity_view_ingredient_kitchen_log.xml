@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewIngredientKitchenLogActivity"
+    tools:context=".activity.kitchen_log.ViewIngredientKitchenLogActivity"
     android:background="@color/light_gray">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Kitchen Log | Add Ingredient"
+            android:text="Kitchen Log | View Ingredient"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -28,7 +28,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
             android:layout_marginEnd="16dp"
             android:padding="10dp"
             android:textColor="@color/black"

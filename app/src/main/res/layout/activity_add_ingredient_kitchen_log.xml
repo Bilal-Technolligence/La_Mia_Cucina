@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddIngredientKitchenLogActivity"
+    tools:context=".activity.kitchen_log.AddIngredientKitchenLogActivity"
     android:background="@color/light_gray">
 
     <LinearLayout
@@ -96,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:layout_marginTop="30dp"
+                android:textSize="18sp"
                 android:background="@drawable/gradient"
                 android:text="Add Ingredient" />
 

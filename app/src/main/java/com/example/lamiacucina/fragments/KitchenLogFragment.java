@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.lamiacucina.AddIngredientKitchenLogActivity;
+import com.example.lamiacucina.activity.kitchen_log.AddIngredientKitchenLogActivity;
 import com.example.lamiacucina.R;
-import com.example.lamiacucina.ViewIngredientKitchenLogActivity;
+import com.example.lamiacucina.activity.kitchen_log.ViewIngredientKitchenLogActivity;
 
 public class KitchenLogFragment extends Fragment {
 

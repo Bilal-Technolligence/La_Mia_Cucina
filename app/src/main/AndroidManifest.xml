@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lamiacucina">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -17,10 +17,28 @@
         android:theme="@style/Theme.LaMiaCucina"
         tools:targetApi="s">
         <activity
-            android:name=".ViewIngredientKitchenLogActivity"
+            android:name=".SelectRecipesActivity"
             android:exported="false" />
         <activity
-            android:name=".AddIngredientKitchenLogActivity"
+            android:name=".EditDemandListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PantryManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChefActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.family.AddNewFamilyMemberActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.kitchen_log.ViewIngredientKitchenLogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.kitchen_log.AddIngredientKitchenLogActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
@@ -43,9 +61,6 @@
             android:name=".StartActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>

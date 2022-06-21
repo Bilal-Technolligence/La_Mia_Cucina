@@ -2,4 +2,7 @@
     <string name="app_name">La Mia Cucina</string>
     <string name="txtRegistration">Create New Account</string>
     <string name="txtLogin">Login Form</string>
+    <string name="u_see_recipes_u"><u>See Recipes</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

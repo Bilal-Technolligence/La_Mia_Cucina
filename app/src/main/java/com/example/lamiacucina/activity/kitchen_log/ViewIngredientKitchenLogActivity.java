@@ -1,4 +1,4 @@
-package com.example.lamiacucina;
+package com.example.lamiacucina.activity.kitchen_log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
+import com.example.lamiacucina.R;
 import com.example.lamiacucina.adapter.IngredientListAdaptor;
 import com.example.lamiacucina.model.Ingredient;
 import com.google.firebase.auth.FirebaseAuth;
@@ -18,7 +20,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class ViewIngredientKitchenLogActivity extends AppCompatActivity {
     public FirebaseAuth mAuth;
@@ -27,6 +28,7 @@ public class ViewIngredientKitchenLogActivity extends AppCompatActivity {
     RecyclerView rv;
     View NoRecordFoundView;
     DatabaseReference databaseReference;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class ViewIngredientKitchenLogActivity extends AppCompatActivity {
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        progressBar = findViewById(R.id.progressBar);
         NoRecordFoundView = findViewById(R.id.noRcdFnd);
         NoRecordFoundView.setVisibility(View.GONE);
 
@@ -46,6 +49,7 @@ public class ViewIngredientKitchenLogActivity extends AppCompatActivity {
 
         al = new ArrayList<>();
 
+        progressBar.setVisibility(View.VISIBLE);
         FirebaseDatabase.getInstance().getReference().child("ingredients").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -61,16 +65,18 @@ public class ViewIngredientKitchenLogActivity extends AppCompatActivity {
 
                         al.add(p);
                     }
+                    progressBar.setVisibility(View.GONE);
                     if (!al.isEmpty()) {
                         NoRecordFoundView.setVisibility(View.GONE);
                         rv.setVisibility(View.VISIBLE);
-                        md = new IngredientListAdaptor(ViewIngredientKitchenLogActivity.this, al);
+                        md = new IngredientListAdaptor(ViewIngredientKitchenLogActivity.this, al, false);
                         rv.setAdapter(md);
                     } else {
                         NoRecordFoundView.setVisibility(View.VISIBLE);
                         rv.setVisibility(View.GONE);
                     }
                 } else {
+                    progressBar.setVisibility(View.GONE);
                     NoRecordFoundView.setVisibility(View.VISIBLE);
                     rv.setVisibility(View.GONE);
                 }
