@@ -21,6 +21,7 @@ import com.example.lamiacucina.adapter.FamilyListAdaptor;
 import com.example.lamiacucina.adapter.IngredientListAdaptor;
 import com.example.lamiacucina.model.Family;
 import com.example.lamiacucina.model.Ingredient;
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -75,59 +76,46 @@ public class MyFamilyFragment extends Fragment {
     }
 
     private void GetMyData() {
-        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        String MyFamilyID = new BaseUtil(requireActivity()).getFamilyID();
+        FirebaseDatabase.getInstance().getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists())
-                {
-                    String MyFamilyID = snapshot.child("FamilyID").getValue().toString();
-                    FirebaseDatabase.getInstance().getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            if (dataSnapshot.exists()) {
-                                for (DataSnapshot eachAdRecord : dataSnapshot.getChildren()) {
-                                    String thisFamilyID = eachAdRecord.child("FamilyID").getValue().toString();
-                                    if (MyFamilyID.equals(thisFamilyID))
-                                    {
-                                        Family p = new Family();
-                                        p.setID(eachAdRecord.getKey());
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot eachAdRecord : dataSnapshot.getChildren()) {
+                        String thisFamilyID = eachAdRecord.child("FamilyID").getValue().toString();
+                        if (MyFamilyID.equals(thisFamilyID))
+                        {
+                            Family p = new Family();
+                            p.setID(eachAdRecord.getKey());
 
-                                        p.setName(eachAdRecord.child("PersonName").getValue(String.class));
-                                        p.setRole(eachAdRecord.child("Role").getValue(String.class));
-                                        p.setFamilyId(eachAdRecord.child("FamilyID").getValue(String.class));
-                                        p.setEmail(eachAdRecord.child("Email").getValue(String.class));
-                                        p.setIsAccountCreated(eachAdRecord.child("AccountCreated").getValue(String.class));
+                            p.setName(eachAdRecord.child("PersonName").getValue(String.class));
+                            p.setRole(eachAdRecord.child("Role").getValue(String.class));
+                            p.setFamilyId(eachAdRecord.child("FamilyID").getValue(String.class));
+                            p.setEmail(eachAdRecord.child("Email").getValue(String.class));
+                            p.setIsAccountCreated(eachAdRecord.child("AccountCreated").getValue(String.class));
 
-                                        al.add(p);
-                                    }
-                                }
-                                progressBar.setVisibility(View.GONE);
-                                if (!al.isEmpty()) {
-                                    NoRecordFoundView.setVisibility(View.GONE);
-                                    rv.setVisibility(View.VISIBLE);
-                                    md = new FamilyListAdaptor(getActivity(), al);
-                                    rv.setAdapter(md);
-                                } else {
-                                    NoRecordFoundView.setVisibility(View.VISIBLE);
-                                    rv.setVisibility(View.GONE);
-                                }
-                            } else {
-                                progressBar.setVisibility(View.GONE);
-                                NoRecordFoundView.setVisibility(View.VISIBLE);
-                                rv.setVisibility(View.GONE);
-                            }
+                            al.add(p);
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
+                    }
+                    progressBar.setVisibility(View.GONE);
+                    if (!al.isEmpty()) {
+                        NoRecordFoundView.setVisibility(View.GONE);
+                        rv.setVisibility(View.VISIBLE);
+                        md = new FamilyListAdaptor(getActivity(), al);
+                        rv.setAdapter(md);
+                    } else {
+                        NoRecordFoundView.setVisibility(View.VISIBLE);
+                        rv.setVisibility(View.GONE);
+                    }
+                } else {
+                    progressBar.setVisibility(View.GONE);
+                    NoRecordFoundView.setVisibility(View.VISIBLE);
+                    rv.setVisibility(View.GONE);
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });

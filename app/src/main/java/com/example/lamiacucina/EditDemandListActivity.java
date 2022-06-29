@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.lamiacucina.activity.kitchen_log.AddIngredientKitchenLogActivity;
 import com.example.lamiacucina.model.Ingredient;
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -95,6 +96,7 @@ public class EditDemandListActivity extends AppCompatActivity {
             ingredient.put("IngredientQuantity",ingredientQuantity.getText().toString());
             ingredient.put("IngredientUnit",ingredientUnit.getText().toString());
             ingredient.put("IngredientThresholdValue",ingredientThresholdValue.getText().toString());
+            ingredient.put("FamilyID",new BaseUtil(this).getFamilyID());
 
             firebaseDatabase.child("ingredients").child(preIngredient.getID()).updateChildren(ingredient).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override

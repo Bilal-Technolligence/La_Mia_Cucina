@@ -16,13 +16,15 @@ import androidx.fragment.app.FragmentManager;
 import com.example.lamiacucina.PantryManagerActivity;
 import com.example.lamiacucina.R;
 import com.example.lamiacucina.StartActivity;
+import com.example.lamiacucina.activity.recipe.AddRecipeActivity;
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
+import java.util.Objects;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomePantryManagerFragment extends Fragment {
@@ -59,9 +61,14 @@ public class HomePantryManagerFragment extends Fragment {
             //registering popup with OnMenuItemClickListener
             popup.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.logout) {
+                    new BaseUtil(requireActivity()).ClearPreferences();
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(getActivity(), StartActivity.class));
                     requireActivity().finish();
+                }
+                else if (item.getItemId() == R.id.addRecipe)
+                {
+                    startActivity(new Intent(getActivity(), AddRecipeActivity.class));
                 }
                 return true;
             });
@@ -69,14 +76,14 @@ public class HomePantryManagerFragment extends Fragment {
             popup.show();//showing popup menu
         });
 
-        databaseReference.child("Users").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    String Name = snapshot.child("PersonName").getValue().toString();
-                    UserNameTxt.setText("Hello " + Name);
+                    String Name = snapshot.child("PersonName").getValue(String.class);
+                    UserNameTxt.setText(requireActivity().getResources().getString(R.string.hello_with_name,Name));
                 } else
-                    UserNameTxt.setText("Hello");
+                    UserNameTxt.setText(getResources().getString(R.string.hello));
             }
 
             @Override

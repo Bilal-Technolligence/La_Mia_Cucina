@@ -13,7 +13,60 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92af16d0-7ada-4e89-874d-9318cf6bfbf7" name="Changes" comment="June 22, 2022 Morning 01:26AM" />
+    <list default="true" id="92af16d0-7ada-4e89-874d-9318cf6bfbf7" name="Changes" comment="June 22, 2022 Morning 01:26AM">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/activity/recipe/AddRecipeActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/activity/recipe/CustomizeRecipeActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/adapter/AddIngredientListAdaptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/adapter/ViewAllPlannedMealsAdaptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/adapter/ViewAllRecipesAdaptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/ViewAllRecipesFragment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/model/Meal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/util/BaseUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_add_to_queue_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_baseline_delete_24.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_recipe.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_customize_recipe.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/delete_ingredient_recyclerview_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_all_recipes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_view_planned_meals_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/recycler_view_recipes_list_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.3.3/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/ChefActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/ChefActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/EditDemandListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/EditDemandListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/PantryManagerActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/PantryManagerActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/RecipeDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/RecipeDetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/SelectRecipesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/SelectRecipesActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/Signup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/SplashActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/SplashActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/activity/family/AddNewFamilyMemberActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/activity/family/AddNewFamilyMemberActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/activity/kitchen_log/AddIngredientKitchenLogActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/activity/kitchen_log/AddIngredientKitchenLogActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/adapter/FamilyListAdaptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/adapter/FamilyListAdaptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/HomeChefFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/HomeChefFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/HomePantryManagerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/HomePantryManagerFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/MealPlannerFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/MealPlannerFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/MyFamilyFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/MyFamilyFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/ViewScheduleMealPlansFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/ViewScheduleMealPlansFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/model/Ingredient.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/model/Ingredient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/model/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/model/Recipe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_recipe_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_recipe_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_planner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meal_planner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_schedule_meal_plans.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_view_schedule_meal_plans.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/pop_up_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/pop_up_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,13 +120,13 @@
     <property name="android-custom-viewC:/Users/SHAHZAIB-PC/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.6.1/d4d703885d24c61bc0ec39a9a705969e41d773ef/material-1.6.1-sources.jar!/com/google/android/material/navigation/NavigationBarView.java_SELECTED" value="NavigationBarView" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/menu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Clients_Projects\La_Mia_Cucina\app\src\main\res\layout" />
       <recent name="F:\Clients_Projects\La_Mia_Cucina\app\src\main\res\menu" />
       <recent name="F:\Clients_Projects\La_Mia_Cucina\app\src\main\res\drawable-v24" />
-      <recent name="F:\Clients_Projects\La_Mia_Cucina\app\src\main\res\layout" />
       <recent name="F:\Clients_Projects\La_Mia_Cucina\app\src\main\res\drawable" />
     </key>
     <key name="android.template.2115120769">
@@ -88,11 +141,18 @@
     <key name="android.template.1751643789">
       <recent name="com.example.lamiacucina" />
     </key>
+    <key name="android.template.-2074164280">
+      <recent name="com.example.lamiacucina" />
+      <recent name="com.example.lamiacucina.activity.recipe" />
+      <recent name="com.example.lamiacucina.activity" />
+    </key>
     <key name="android.template.808678818">
       <recent name="com.example.lamiacucina.activity.family" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.lamiacucina.model" />
       <recent name="com.example.lamiacucina.adapter" />
+      <recent name="com.example.lamiacucina.util" />
     </key>
   </component>
   <component name="RunManager">
@@ -177,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655843288859</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="June 22, 2022 Morning 01:26AM">
+      <created>1655843369174</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1655843369174</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,14 +268,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/fragments/HomeChefFragment.java</url>
-          <line>206</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/adapter/TrendingRecyclerViewAdapter.java</url>
           <line>92</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/lamiacucina/util/BaseUtil.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

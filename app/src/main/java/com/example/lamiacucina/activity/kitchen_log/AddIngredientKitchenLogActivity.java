@@ -6,14 +6,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.lamiacucina.R;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,19 +72,18 @@ public class AddIngredientKitchenLogActivity extends AppCompatActivity {
             ingredient.put("IngredientQuantity",ingredientQuantity.getText().toString());
             ingredient.put("IngredientUnit",ingredientUnit.getText().toString());
             ingredient.put("IngredientThresholdValue",ingredientThresholdValue.getText().toString());
+            ingredient.put("FamilyID",new BaseUtil(this).getFamilyID());
 
-            firebaseDatabase.child("ingredients").child(key).setValue(ingredient).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Toast.makeText(AddIngredientKitchenLogActivity.this, "Ingredient added !", Toast.LENGTH_SHORT).show();
+            assert key != null;
+            firebaseDatabase.child("ingredients").child(key).setValue(ingredient).addOnSuccessListener(unused -> {
+                Toast.makeText(AddIngredientKitchenLogActivity.this, "Ingredient added !", Toast.LENGTH_SHORT).show();
 
-                    ingredientName.setText("");
-                    ingredientQuantity.setText("");
-                    ingredientUnit.setText("");
-                    ingredientThresholdValue.setText("");
+                ingredientName.setText("");
+                ingredientQuantity.setText("");
+                ingredientUnit.setText("");
+                ingredientThresholdValue.setText("");
 
-                    progressBar.setVisibility(View.GONE);
-                }
+                progressBar.setVisibility(View.GONE);
             }).addOnFailureListener(e ->
             {
                 progressBar.setVisibility(View.GONE);

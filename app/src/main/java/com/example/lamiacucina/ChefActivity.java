@@ -13,9 +13,9 @@ import com.example.lamiacucina.fragments.MyFamilyFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
 public class ChefActivity extends BaseActivity implements NavigationBarView.OnItemSelectedListener {
-    protected NavigationBarView navigationBarView;
-    protected HomeChefFragment homeChefFragment = new HomeChefFragment();
-    protected MealPlannerFragment mealPlannerFragment = new MealPlannerFragment();
+    protected static NavigationBarView navigationBarView;
+    protected HomeChefFragment homeChefFragment = new HomeChefFragment(getSupportFragmentManager());
+    protected MealPlannerFragment mealPlannerFragment = new MealPlannerFragment(getSupportFragmentManager());
     protected DemandListFragment demandListFragment = new DemandListFragment();
     protected KitchenLogFragment kitchenLogFragment = new KitchenLogFragment();
     protected MyFamilyFragment myFamilyFragment = new MyFamilyFragment();
@@ -65,4 +65,10 @@ public class ChefActivity extends BaseActivity implements NavigationBarView.OnIt
         }
         return false;
     }
+
+    public static void change()
+    {
+        //navigationBarView.setSelectedItemId(R.id.nav_meal_planner);
+    }
+
 }

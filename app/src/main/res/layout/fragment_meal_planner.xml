@@ -75,10 +75,10 @@
                     android:layout_marginEnd="0dp"
                     android:layout_toEndOf="@+id/DummyRecipeImage"
                     android:padding="5dp"
-                    android:text="You have already planned 4 Meals Menu"
                     android:textColor="@color/black" />
 
                 <TextView
+                    android:id="@+id/plannedMealsTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/RecipesCount"
@@ -87,7 +87,7 @@
                     android:layout_marginEnd="0dp"
                     android:layout_toEndOf="@+id/DummyRecipeImage"
                     android:padding="5dp"
-                    android:text="See Planned Meals!"
+                    android:text="@string/u_planned_meals"
                     android:textColor="@color/purple_700"
                     android:textStyle="bold" />
 
@@ -167,6 +167,30 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:hint="Select Time of Meal!"
+                android:padding="10dp"
+                android:textSize="20sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="30dp"
+            android:background="@color/light_gray"
+            android:foreground="@color/light_gray"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <EditText
+                android:id="@+id/Serving"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:inputType="number"
+                android:maxLength="2"
+                android:hint="Select Number of Servings"
                 android:padding="10dp"
                 android:textSize="20sp" />
 

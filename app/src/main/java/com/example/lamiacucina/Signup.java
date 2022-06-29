@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -181,7 +183,10 @@ public class Signup extends AppCompatActivity {
                 user.put("AccountCreated", "true");
 
                 databaseReference.child("Users").child(userID).setValue(user).addOnSuccessListener(unused -> {
-                    Log.d(TAG, "onSuccess: user Profile is created for " + userID);
+                    new BaseUtil(Signup.this).SetLoginRole(Role);
+                    new BaseUtil(Signup.this).SetFamilyID(familyID);
+                    new BaseUtil(Signup.this).SetLoggedIn(true);
+
                     if (RolesList.get(RoleSpinner.getSelectedItemPosition()).equals("Chef"))
                         startActivity(new Intent(getApplicationContext(), ChefActivity.class));
                     else

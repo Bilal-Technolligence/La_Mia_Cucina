@@ -10,13 +10,13 @@ public class Recipe implements Serializable {
     String Title;
     String Image;
     String Instruction;
-    ArrayList<String> Ingredients = new ArrayList<>();
+    ArrayList<Ingredient> Ingredients = new ArrayList<>();
     boolean Selected;
 
     public Recipe() {
     }
 
-    public Recipe(String ID, String title, String image, String instruction, ArrayList<String> ingredients) {
+    public Recipe(String ID, String title, String image, String instruction, ArrayList<Ingredient> ingredients) {
         this.ID = ID;
         Title = title;
         Image = image;
@@ -64,15 +64,15 @@ public class Recipe implements Serializable {
         Instruction = instruction;
     }
 
-    public ArrayList<String> getIngredients() {
+    public ArrayList<Ingredient> getIngredients() {
         return Ingredients;
     }
 
-    public void setIngredients(ArrayList<String> ingredients) {
+    public void setIngredients(ArrayList<Ingredient> ingredients) {
         Ingredients = ingredients;
     }
 
-    public void addIngredient(String ingredient)
+    public void addIngredient(Ingredient ingredient)
     {
         Ingredients.add(ingredient);
     }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -80,6 +81,12 @@ public class Login extends AppCompatActivity {
                                     if (snapshot.child("Role").exists())
                                     {
                                         String Role = snapshot.child("Role").getValue(String.class);
+                                        String FamilyID = snapshot.child("FamilyID").getValue(String.class);
+
+                                        new BaseUtil(Login.this).SetLoginRole(Role);
+                                        new BaseUtil(Login.this).SetFamilyID(FamilyID);
+                                        new BaseUtil(Login.this).SetLoggedIn(true);
+
                                         if (Objects.requireNonNull(Role).equals("Chef"))
                                             startActivity(new Intent(Login.this, ChefActivity.class));
                                         else if (Role.equals("Pantry Manager"))

@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.lamiacucina.R;
 import com.example.lamiacucina.Signup;
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -105,35 +106,19 @@ public class AddNewFamilyMemberActivity extends AppCompatActivity {
     }
 
     private void SaveDB(String email,String FullName) {
-        databaseReference.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists())
-                {
-                    if (snapshot.child("FamilyID").exists())
-                    {
-                        String FamilyID = snapshot.child("FamilyID").getValue().toString();
+        String MyFamilyID = new BaseUtil(this).getFamilyID();
 
-                        Map<String,Object> user = new HashMap<>();
-                        user.put("PersonName",FullName);
-                        user.put("Role",RolesList.get(RoleSpinner.getSelectedItemPosition()));
-                        user.put("Email",email);
-                        user.put("FamilyID",FamilyID);
+        Map<String,Object> user = new HashMap<>();
+        user.put("PersonName",FullName);
+        user.put("Role",RolesList.get(RoleSpinner.getSelectedItemPosition()));
+        user.put("Email",email);
+        user.put("FamilyID",MyFamilyID);
 
-                        String Id = databaseReference.child("FamilyIds").push().getKey();
-                        databaseReference.child("FamilyIds").child(Id).setValue(user);
-                        Toast.makeText(AddNewFamilyMemberActivity.this, "Member Added", Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-                        mEmail.setText("");
-                        mFullName.setText("");
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        String Id = databaseReference.child("FamilyIds").push().getKey();
+        databaseReference.child("FamilyIds").child(Id).setValue(user);
+        Toast.makeText(AddNewFamilyMemberActivity.this, "Member Added", Toast.LENGTH_SHORT).show();
+        progressBar.setVisibility(View.GONE);
+        mEmail.setText("");
+        mFullName.setText("");
     }
 }

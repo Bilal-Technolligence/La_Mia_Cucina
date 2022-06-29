@@ -113,7 +113,6 @@
                     android:layout_marginEnd="0dp"
                     android:layout_toEndOf="@+id/DummyRecipeImage"
                     android:padding="5dp"
-                    android:text="You have 12 Recipes that you haven't tried yet!"
                     android:textColor="@color/black" />
 
                 <TextView

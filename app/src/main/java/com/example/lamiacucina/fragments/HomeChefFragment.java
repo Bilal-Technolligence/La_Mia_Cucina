@@ -7,16 +7,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.lamiacucina.ChefActivity;
+import com.example.lamiacucina.PantryManagerActivity;
 import com.example.lamiacucina.R;
 import com.example.lamiacucina.RecipeDetailActivity;
+import com.example.lamiacucina.SelectRecipesActivity;
 import com.example.lamiacucina.StartActivity;
+import com.example.lamiacucina.activity.recipe.AddRecipeActivity;
+import com.example.lamiacucina.adapter.SelectRecipesAdaptor;
 import com.example.lamiacucina.adapter.TrendingRecyclerViewAdapter;
+import com.example.lamiacucina.model.Ingredient;
 import com.example.lamiacucina.model.Recipe;
+import com.example.lamiacucina.util.BaseUtil;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,35 +34,44 @@ import com.google.firebase.database.ValueEventListener;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeChefFragment extends Fragment implements TrendingRecyclerViewAdapter.ItemClickListener {
     CircleImageView ProfileImage;
     TextView UserNameTxt;
+    TextView RecipesCount;
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     TrendingRecyclerViewAdapter trendingRecyclerViewAdapter;
     private SliderView sliderView;
     private final ArrayList<Recipe> currentList = new ArrayList<>();
     private View no_Trending_ads_layout;
+    CardView SeeRecipes;
+    FragmentManager fragmentManager;
 
-    public HomeChefFragment() {
+    public HomeChefFragment(FragmentManager supportFragmentManager) {
         // Required empty public constructor
+        fragmentManager = supportFragmentManager;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        //SaveRecipe();
 
         ProfileImage = view.findViewById(R.id.profile_image);
         UserNameTxt = view.findViewById(R.id.UserNameTxt);
         no_Trending_ads_layout = view.findViewById(R.id.no_Trending_ads_layout);
         sliderView = view.findViewById(R.id.imageSlider);
+        RecipesCount = view.findViewById(R.id.RecipesCount);
+        SeeRecipes = view.findViewById(R.id.CardView);
+
+        SeeRecipes.setOnClickListener(view12 -> {
+            fragmentManager.beginTransaction().replace(R.id.flFragment, new ViewAllRecipesFragment()).commit();
+            ChefActivity.change();
+        });
 
         ProfileImage.setOnClickListener(view1 -> {
             //Creating the instance of PopupMenu
@@ -65,24 +82,28 @@ public class HomeChefFragment extends Fragment implements TrendingRecyclerViewAd
             //registering popup with OnMenuItemClickListener
             popup.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.logout) {
+                    new BaseUtil(requireActivity()).ClearPreferences();
                     FirebaseAuth.getInstance().signOut();
                     startActivity(new Intent(getActivity(), StartActivity.class));
                     requireActivity().finish();
                 }
+                else if (item.getItemId() == R.id.addRecipe)
+                {
+                    startActivity(new Intent(getActivity(), AddRecipeActivity.class));
+                }
                 return true;
             });
-
-            popup.show();//showing popup menu
+            popup.show(); //showing popup menu
         });
 
-        databaseReference.child("Users").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.child("Users").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    String Name = snapshot.child("PersonName").getValue().toString();
-                    UserNameTxt.setText("Hello " + Name);
+                    String Name = snapshot.child("PersonName").getValue(String.class);
+                    UserNameTxt.setText(requireActivity().getResources().getString(R.string.hello_with_name,Name));
                 } else
-                    UserNameTxt.setText("Hello");
+                    UserNameTxt.setText(getResources().getString(R.string.hello));
             }
 
             @Override
@@ -91,6 +112,41 @@ public class HomeChefFragment extends Fragment implements TrendingRecyclerViewAd
             }
         });
         startSlider();
+
+        databaseReference.child("Recipes").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    int count = 0;
+                    for (DataSnapshot eachAdRecord : dataSnapshot.getChildren()) {
+                        if (eachAdRecord.child("FamilyID").exists() && !eachAdRecord.child("FamilyID").getValue(String.class).equals(""))
+                        {
+                            String mFamilyID = eachAdRecord.child("FamilyID").getValue(String.class);
+                            String FamilyID = new BaseUtil(requireActivity()).getFamilyID();
+
+                            if (mFamilyID.equals(FamilyID))
+                            {
+                                count++;
+                            }
+                        }
+                        if (count != 0)
+                        {
+                            RecipesCount.setText(getResources().getString(R.string.recipes_count,count));
+                        }
+                        else
+                            RecipesCount.setText(getResources().getString(R.string.recipes_no_count));
+                    }
+
+                } else {
+                    RecipesCount.setText(getResources().getString(R.string.recipes_no_count));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         return view;
     }
@@ -125,7 +181,7 @@ public class HomeChefFragment extends Fragment implements TrendingRecyclerViewAd
                         recipe.setInstruction(eachAdRecord.child("Instructions").getValue(String.class));
 
                         for (DataSnapshot ingredients : eachAdRecord.child("ingredients").getChildren()) {
-                            recipe.addIngredient(ingredients.getValue(String.class));
+                            recipe.addIngredient(ingredients.getValue(Ingredient.class));
                         }
 
                         currentList.add(recipe);
@@ -168,7 +224,7 @@ public class HomeChefFragment extends Fragment implements TrendingRecyclerViewAd
         sliderView.setVisibility(View.GONE);
     }
 
-    private void SaveRecipe() {
+    /*private void SaveRecipe() {
         HashMap<String, Object> recipe = new HashMap<>();
 
         recipe.put("title", "Miso-Butter Roast Chicken With Acorn Squash Panzanella");
@@ -200,7 +256,7 @@ public class HomeChefFragment extends Fragment implements TrendingRecyclerViewAd
         recipe.put("ingredients", ingredients);
 
         databaseReference.child("Recipes").child("1").setValue(recipe);
-    }
+    }*/
 
     @Override
     public void onItemClick(View view, int position) {

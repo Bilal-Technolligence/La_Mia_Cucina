@@ -2,6 +2,8 @@ package com.example.lamiacucina.model;
 
 import android.os.Parcelable;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Ingredient implements Serializable {
@@ -60,5 +62,11 @@ public class Ingredient implements Serializable {
 
     public void setIngredientThresholdValue(String ingredientThresholdValue) {
         IngredientThresholdValue = ingredientThresholdValue;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return IngredientName + IngredientQuantity + IngredientUnit;
     }
 }

@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lamiacucina.model.Ingredient;
 import com.example.lamiacucina.model.Recipe;
 import com.squareup.picasso.Picasso;
 
@@ -14,6 +15,7 @@ public class RecipeDetailActivity extends AppCompatActivity {
     ImageView RecipeImage;
     TextView ItemCount;
     TextView IngredientsTextView;
+    TextView InstructionsTextView;
     TextView RecipeTitle;
 
     @Override
@@ -33,9 +35,11 @@ public class RecipeDetailActivity extends AppCompatActivity {
         ItemCount = findViewById(R.id.ItemCount);
         RecipeTitle = findViewById(R.id.RecipeTitle);
         IngredientsTextView = findViewById(R.id.IngredientsTextView);
+        InstructionsTextView = findViewById(R.id.InstructionsTextView);
 
         ItemCount.setText(recipe.getIngredients().size() + " Items");
         RecipeTitle.setText(recipe.getTitle());
+        InstructionsTextView.setText(recipe.getInstruction());
 
         if (recipe.getImage() != null)
             Picasso.get().load(recipe.getImage()).into(RecipeImage);
@@ -44,8 +48,8 @@ public class RecipeDetailActivity extends AppCompatActivity {
 
         StringBuilder Ingredient = new StringBuilder();
 
-        for (String ingredient : recipe.getIngredients()) {
-            Ingredient.append(ingredient).append("\n\n");
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            Ingredient.append(ingredient.toString()).append("\n\n");
         }
 
         IngredientsTextView.setText(Ingredient.toString());
