@@ -1,5 +1,6 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,11 +16,12 @@ import com.example.lamiacucina.R;
 import com.example.lamiacucina.activity.kitchen_log.ViewIngredientKitchenLogActivity;
 
 public class KitchenLogFragment extends Fragment {
-
     CardView addIngredient,viewIngredient;
+    Context context;
 
-    public KitchenLogFragment() {
+    public KitchenLogFragment(Context c) {
         // Required empty public constructor
+        context = c ;
     }
 
     @Override

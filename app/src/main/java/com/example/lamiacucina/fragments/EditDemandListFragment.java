@@ -1,5 +1,7 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,7 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
+import com.example.lamiacucina.LocationActivity;
 import com.example.lamiacucina.R;
 import com.example.lamiacucina.adapter.IngredientListAdaptor;
 import com.example.lamiacucina.model.Ingredient;
@@ -32,9 +36,12 @@ public class EditDemandListFragment extends Fragment {
     View NoRecordFoundView;
     DatabaseReference databaseReference;
     ProgressBar progressBar;
+    Context context;
+    TextView findStores;
 
-    public EditDemandListFragment() {
+    public EditDemandListFragment(Context c) {
         // Required empty public constructor
+        context = c;
     }
 
     @Override
@@ -43,12 +50,16 @@ public class EditDemandListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit_demand_list, container, false);
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        findStores = view.findViewById(R.id.findStores);
+
+        findStores.setOnClickListener(view1 -> startActivity(new Intent(context, LocationActivity.class)));
+
         progressBar = view.findViewById(R.id.progressBar);
         NoRecordFoundView = view.findViewById(R.id.noRcdFnd);
         NoRecordFoundView.setVisibility(View.GONE);
 
         rv = view.findViewById(R.id.recyclerViewDemandIngredients);
-        RecyclerView.LayoutManager rlm = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager rlm = new LinearLayoutManager(context);
         rv.setLayoutManager(rlm);
 
         mAuth = FirebaseAuth.getInstance();
@@ -83,7 +94,7 @@ public class EditDemandListFragment extends Fragment {
                     if (!al.isEmpty()) {
                         NoRecordFoundView.setVisibility(View.GONE);
                         rv.setVisibility(View.VISIBLE);
-                        md = new IngredientListAdaptor(getActivity(), al,true);
+                        md = new IngredientListAdaptor(context, al,true);
                         rv.setAdapter(md);
                     } else {
                         NoRecordFoundView.setVisibility(View.VISIBLE);

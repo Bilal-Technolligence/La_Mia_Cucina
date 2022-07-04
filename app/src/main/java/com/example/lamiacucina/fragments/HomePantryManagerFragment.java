@@ -1,5 +1,6 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -33,10 +34,12 @@ public class HomePantryManagerFragment extends Fragment {
     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     FragmentManager fragmentManager;
     CardView SeePlannedMeals;
+    Context context;
 
-    public HomePantryManagerFragment(FragmentManager supportFragmentManager) {
+    public HomePantryManagerFragment(FragmentManager supportFragmentManager,Context c) {
         // Required empty public constructor
         fragmentManager = supportFragmentManager;
+        context = c;
     }
 
     @Override
@@ -49,26 +52,26 @@ public class HomePantryManagerFragment extends Fragment {
         SeePlannedMeals = view.findViewById(R.id.PlannedMealsCard);
 
         SeePlannedMeals.setOnClickListener(view12 -> {
-            fragmentManager.beginTransaction().replace(R.id.flFragment, new ViewScheduleMealPlansFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.flFragment, new ViewScheduleMealPlansFragment(context)).commit();
             PantryManagerActivity.change();
         });
         ProfileImage.setOnClickListener(view1 -> {
             //Creating the instance of PopupMenu
-            PopupMenu popup = new PopupMenu(requireActivity(), ProfileImage);
+            PopupMenu popup = new PopupMenu(context, ProfileImage);
             //Inflating the Popup using xml file
             popup.getMenuInflater().inflate(R.menu.pop_up_menu, popup.getMenu());
 
             //registering popup with OnMenuItemClickListener
             popup.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.logout) {
-                    new BaseUtil(requireActivity()).ClearPreferences();
+                    new BaseUtil(context).ClearPreferences();
                     FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(getActivity(), StartActivity.class));
+                    startActivity(new Intent(context, StartActivity.class));
                     requireActivity().finish();
                 }
                 else if (item.getItemId() == R.id.addRecipe)
                 {
-                    startActivity(new Intent(getActivity(), AddRecipeActivity.class));
+                    startActivity(new Intent(context, AddRecipeActivity.class));
                 }
                 return true;
             });
@@ -81,7 +84,7 @@ public class HomePantryManagerFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     String Name = snapshot.child("PersonName").getValue(String.class);
-                    UserNameTxt.setText(requireActivity().getResources().getString(R.string.hello_with_name,Name));
+                    UserNameTxt.setText(context.getResources().getString(R.string.hello_with_name,Name));
                 } else
                     UserNameTxt.setText(getResources().getString(R.string.hello));
             }

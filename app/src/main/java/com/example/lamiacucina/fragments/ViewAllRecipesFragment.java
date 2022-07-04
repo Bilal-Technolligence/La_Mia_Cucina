@@ -1,21 +1,17 @@
 package com.example.lamiacucina.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
-
 import com.example.lamiacucina.R;
-import com.example.lamiacucina.SelectRecipesActivity;
-import com.example.lamiacucina.adapter.SelectRecipesAdaptor;
 import com.example.lamiacucina.adapter.ViewAllRecipesAdaptor;
 import com.example.lamiacucina.model.Ingredient;
 import com.example.lamiacucina.model.Recipe;
@@ -53,7 +49,7 @@ public class ViewAllRecipesFragment extends Fragment {
         NoRecordFoundView.setVisibility(View.GONE);
 
         rv = view.findViewById(R.id.recyclerViewViewAllRecipes);
-        RecyclerView.LayoutManager rlm = new LinearLayoutManager(requireActivity());
+        RecyclerView.LayoutManager rlm = new LinearLayoutManager(getActivity());
         rv.setLayoutManager(rlm);
 
         mAuth = FirebaseAuth.getInstance();
@@ -92,7 +88,7 @@ public class ViewAllRecipesFragment extends Fragment {
                     if (!currentList.isEmpty()) {
                         NoRecordFoundView.setVisibility(View.GONE);
                         rv.setVisibility(View.VISIBLE);
-                        md = new ViewAllRecipesAdaptor(requireActivity(), currentList, false);
+                        md = new ViewAllRecipesAdaptor(getActivity(), currentList, false);
                         rv.setAdapter(md);
                     } else {
                         NoRecordFoundView.setVisibility(View.VISIBLE);

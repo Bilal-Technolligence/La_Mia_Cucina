@@ -1,5 +1,6 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,9 +32,11 @@ public class DemandListFragment extends Fragment {
     View NoRecordFoundView;
     DatabaseReference databaseReference;
     ProgressBar progressBar;
+    Context context;
 
-    public DemandListFragment() {
+    public DemandListFragment(Context c) {
         // Required empty public constructor
+        context = c;
     }
 
     @Override
@@ -48,7 +51,7 @@ public class DemandListFragment extends Fragment {
         NoRecordFoundView.setVisibility(View.GONE);
 
         rv = view.findViewById(R.id.recyclerViewDemandIngredients);
-        RecyclerView.LayoutManager rlm = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager rlm = new LinearLayoutManager(context);
         rv.setLayoutManager(rlm);
 
         mAuth = FirebaseAuth.getInstance();
@@ -83,7 +86,7 @@ public class DemandListFragment extends Fragment {
                     if (!al.isEmpty()) {
                         NoRecordFoundView.setVisibility(View.GONE);
                         rv.setVisibility(View.VISIBLE);
-                        md = new IngredientListAdaptor(getActivity(), al, false);
+                        md = new IngredientListAdaptor(context, al, false);
                         rv.setAdapter(md);
                     } else {
                         NoRecordFoundView.setVisibility(View.VISIBLE);

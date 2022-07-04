@@ -1,5 +1,6 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,20 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.lamiacucina.R;
 import com.example.lamiacucina.adapter.ViewAllPlannedMealsAdaptor;
-import com.example.lamiacucina.adapter.ViewAllRecipesAdaptor;
-import com.example.lamiacucina.model.Ingredient;
 import com.example.lamiacucina.model.Meal;
-import com.example.lamiacucina.model.Recipe;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 
 public class ViewScheduleMealPlansFragment extends Fragment {
@@ -34,9 +30,11 @@ public class ViewScheduleMealPlansFragment extends Fragment {
     View NoRecordFoundView;
     DatabaseReference databaseReference;
     ProgressBar progressBar;
-
-    public ViewScheduleMealPlansFragment() {
+    Context context;
+    
+    public ViewScheduleMealPlansFragment(Context c) {
         // Required empty public constructor
+        context = c;
     }
 
     @Override
@@ -51,7 +49,7 @@ public class ViewScheduleMealPlansFragment extends Fragment {
         NoRecordFoundView.setVisibility(View.GONE);
 
         rv = view.findViewById(R.id.recyclerViewViewMealsPlan);
-        RecyclerView.LayoutManager rlm = new LinearLayoutManager(requireActivity());
+        RecyclerView.LayoutManager rlm = new LinearLayoutManager(context);
         rv.setLayoutManager(rlm);
 
         mAuth = FirebaseAuth.getInstance();
@@ -83,7 +81,7 @@ public class ViewScheduleMealPlansFragment extends Fragment {
                     if (!currentList.isEmpty()) {
                         NoRecordFoundView.setVisibility(View.GONE);
                         rv.setVisibility(View.VISIBLE);
-                        md = new ViewAllPlannedMealsAdaptor(requireActivity(), currentList, false);
+                        md = new ViewAllPlannedMealsAdaptor(context, currentList, false);
                         rv.setAdapter(md);
                     } else {
                         NoRecordFoundView.setVisibility(View.VISIBLE);

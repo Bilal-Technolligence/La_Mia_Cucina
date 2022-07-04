@@ -1,20 +1,16 @@
 package com.example.lamiacucina.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.lamiacucina.R;
-import com.example.lamiacucina.RecipeDetailActivity;
 import com.example.lamiacucina.model.Meal;
-import com.example.lamiacucina.model.Recipe;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 

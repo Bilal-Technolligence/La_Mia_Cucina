@@ -14,11 +14,11 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class ChefActivity extends BaseActivity implements NavigationBarView.OnItemSelectedListener {
     protected static NavigationBarView navigationBarView;
-    protected HomeChefFragment homeChefFragment = new HomeChefFragment(getSupportFragmentManager());
-    protected MealPlannerFragment mealPlannerFragment = new MealPlannerFragment(getSupportFragmentManager());
-    protected DemandListFragment demandListFragment = new DemandListFragment();
-    protected KitchenLogFragment kitchenLogFragment = new KitchenLogFragment();
-    protected MyFamilyFragment myFamilyFragment = new MyFamilyFragment();
+    protected HomeChefFragment homeChefFragment = new HomeChefFragment(getSupportFragmentManager(),this);
+    protected MealPlannerFragment mealPlannerFragment = new MealPlannerFragment(getSupportFragmentManager(),this);
+    protected DemandListFragment demandListFragment = new DemandListFragment(this);
+    protected KitchenLogFragment kitchenLogFragment = new KitchenLogFragment(this);
+    protected MyFamilyFragment myFamilyFragment = new MyFamilyFragment(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/drawable-v24/bg_overlay.xml" value="0.146" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/drawable/blue_border_rounded_corner.xml" value="0.1575" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/drawable/blue_fill_rounded_color.xml" value="0.1575" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/drawable/gradient.xml" value="0.1505" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_add_ingredient_kitchen_log.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_add_new_family_member.xml" value="0.209375" />
@@ -13,6 +15,7 @@
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_demand_list.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_edit_demand_list.xml" value="0.1953125" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_family.xml" value="0.1953125" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_google_location.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_login.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_main.xml" value="0.20615384615384616" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/activity_meal_planner.xml" value="0.209375" />
@@ -27,7 +30,7 @@
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/delete_ingredient_recyclerview_item.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/family_recyclerview_item.xml" value="0.209375" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_demand_list.xml" value="0.209375" />
-        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_edit_demand_list.xml" value="0.209375" />
+        <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_edit_demand_list.xml" value="0.25" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_home.xml" value="0.2" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_home_pantry_manager.xml" value="0.2" />
         <entry key="..\:/Clients_Projects/La_Mia_Cucina/app/src/main/res/layout/fragment_kitchen_log.xml" value="0.209375" />

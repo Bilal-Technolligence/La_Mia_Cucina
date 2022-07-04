@@ -12,11 +12,11 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class PantryManagerActivity  extends BaseActivity implements NavigationBarView.OnItemSelectedListener {
     protected static NavigationBarView navigationBarView;
-    protected HomePantryManagerFragment homePantryManagerFragment = new HomePantryManagerFragment(getSupportFragmentManager());
-    protected ViewScheduleMealPlansFragment viewScheduleMealPlansFragment = new ViewScheduleMealPlansFragment();
-    protected EditDemandListFragment editDemandListFragment = new EditDemandListFragment();
-    protected KitchenLogFragment kitchenLogFragment = new KitchenLogFragment();
-    protected MyFamilyFragment myFamilyFragment = new MyFamilyFragment();
+    protected HomePantryManagerFragment homePantryManagerFragment = new HomePantryManagerFragment(getSupportFragmentManager(),this);
+    protected ViewScheduleMealPlansFragment viewScheduleMealPlansFragment = new ViewScheduleMealPlansFragment(this);
+    protected EditDemandListFragment editDemandListFragment = new EditDemandListFragment(this);
+    protected KitchenLogFragment kitchenLogFragment = new KitchenLogFragment(this);
+    protected MyFamilyFragment myFamilyFragment = new MyFamilyFragment(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

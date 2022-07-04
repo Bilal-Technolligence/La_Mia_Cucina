@@ -1,5 +1,6 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -40,9 +41,11 @@ public class MyFamilyFragment extends Fragment {
     DatabaseReference databaseReference;
     ProgressBar progressBar;
     Button AddFamilyMemberBtn;
+    Context context;
 
-    public MyFamilyFragment() {
+    public MyFamilyFragment(Context c) {
         // Required empty public constructor
+        context = c;
     }
 
     @Override
@@ -59,14 +62,14 @@ public class MyFamilyFragment extends Fragment {
         NoRecordFoundView.setVisibility(View.GONE);
 
         rv = view.findViewById(R.id.recyclerViewFamily);
-        RecyclerView.LayoutManager rlm = new LinearLayoutManager(getActivity());
+        RecyclerView.LayoutManager rlm = new LinearLayoutManager(context);
         rv.setLayoutManager(rlm);
 
         mAuth = FirebaseAuth.getInstance();
 
         al = new ArrayList<>();
 
-        AddFamilyMemberBtn.setOnClickListener(view1 -> startActivity(new Intent(getActivity(), AddNewFamilyMemberActivity.class)));
+        AddFamilyMemberBtn.setOnClickListener(view1 -> startActivity(new Intent(context, AddNewFamilyMemberActivity.class)));
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -76,7 +79,7 @@ public class MyFamilyFragment extends Fragment {
     }
 
     private void GetMyData() {
-        String MyFamilyID = new BaseUtil(requireActivity()).getFamilyID();
+        String MyFamilyID = new BaseUtil(context).getFamilyID();
         FirebaseDatabase.getInstance().getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -101,7 +104,7 @@ public class MyFamilyFragment extends Fragment {
                     if (!al.isEmpty()) {
                         NoRecordFoundView.setVisibility(View.GONE);
                         rv.setVisibility(View.VISIBLE);
-                        md = new FamilyListAdaptor(getActivity(), al);
+                        md = new FamilyListAdaptor(context, al);
                         rv.setAdapter(md);
                     } else {
                         NoRecordFoundView.setVisibility(View.VISIBLE);

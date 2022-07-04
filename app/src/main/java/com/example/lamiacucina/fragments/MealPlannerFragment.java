@@ -1,5 +1,6 @@
 package com.example.lamiacucina.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -35,10 +36,12 @@ public class MealPlannerFragment extends Fragment {
     DatabaseReference databaseReference;
     TextView plannedMealsTV;
     FragmentManager fragmentManager;
+    Context context;
 
-    public MealPlannerFragment(FragmentManager supportFragmentManager) {
+    public MealPlannerFragment(FragmentManager supportFragmentManager,Context c) {
         // Required empty public constructor
         fragmentManager = supportFragmentManager;
+        context = c;
     }
 
     @Override
@@ -55,19 +58,19 @@ public class MealPlannerFragment extends Fragment {
         plannedMealsTV = view.findViewById(R.id.plannedMealsTV);
 
         plannedMealsTV.setOnClickListener(view12 -> {
-            fragmentManager.beginTransaction().replace(R.id.flFragment, new ViewScheduleMealPlansFragment()).commit();
+            fragmentManager.beginTransaction().replace(R.id.flFragment, new ViewScheduleMealPlansFragment(context)).commit();
         });
 
         SelectRecipeButton.setOnClickListener(view1 -> {
             HashMap<String,String> data = GetData();
             if (data!=null) {
-                startActivity(new Intent(requireActivity(), SelectRecipesActivity.class).putExtra("data", data));
+                startActivity(new Intent(context, SelectRecipesActivity.class).putExtra("data", data));
                 MenuName.setText("");
                 DurationOfMeal.setText("");
                 MealTime.setText("");
                 Serving.setText("");
             }else
-                Toast.makeText(requireActivity(), "Please fill all required Data", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Please fill all required Data", Toast.LENGTH_SHORT).show();
         });
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -81,7 +84,7 @@ public class MealPlannerFragment extends Fragment {
                         if (eachAdRecord.child("FamilyID").exists() && !Objects.equals(eachAdRecord.child("FamilyID").getValue(String.class), ""))
                         {
                             String mFamilyID = eachAdRecord.child("FamilyID").getValue(String.class);
-                            String FamilyID = new BaseUtil(requireActivity()).getFamilyID();
+                            String FamilyID = new BaseUtil(context).getFamilyID();
 
                             if (Objects.equals(mFamilyID, FamilyID))
                             {
