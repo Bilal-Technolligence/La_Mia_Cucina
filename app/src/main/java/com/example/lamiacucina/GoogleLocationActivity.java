@@ -529,7 +529,6 @@ public class GoogleLocationActivity extends AppCompatActivity implements OnMapRe
                             if (pDialog.isShowing())
                                 pDialog.dismiss();
                             if (isFirstTimeAlert) {
-
                                 AlertDialog.Builder builder = new AlertDialog.Builder(GoogleLocationActivity.this)
                                         .setCancelable(true)
                                         .setTitle("Message")
@@ -544,6 +543,11 @@ public class GoogleLocationActivity extends AppCompatActivity implements OnMapRe
                                 isFirstTimeAlert = false;
                             }
                         }
+                    }
+                    else
+                    {
+                        if (pDialog.isShowing())
+                            pDialog.dismiss();
                     }
                 }
 
@@ -587,7 +591,7 @@ public class GoogleLocationActivity extends AppCompatActivity implements OnMapRe
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         mGoogleMap = googleMap;
-        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mGoogleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         refresh();
     }
 
